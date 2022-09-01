@@ -77,16 +77,10 @@ class Parts {
     );
   }
 
-  static Widget arrow() {
-    return Container(
-      height: 80,
-      width: 80,
-      decoration: const BoxDecoration(
-        color: Colors.lightBlue,
-        borderRadius: BorderRadius.all(
-          Radius.circular(40),
-        ),
-      ),
+  static Widget arrow({required  Function pressed}) {
+    return GestureDetector(
+      onTap: pressed(),
+
       child: Container(
         height: 80,
         width: 80,
@@ -96,11 +90,21 @@ class Parts {
             Radius.circular(40),
           ),
         ),
-        child: const Center(
-          child: Icon(
-            Icons.arrow_forward,
-            color: Colors.white,
-            size: 45,
+        child: Container(
+          height: 80,
+          width: 80,
+          decoration: const BoxDecoration(
+            color: Colors.lightBlue,
+            borderRadius: BorderRadius.all(
+              Radius.circular(40),
+            ),
+          ),
+          child: const Center(
+            child: Icon(
+              Icons.arrow_forward,
+              color: Colors.white,
+              size: 45,
+            ),
           ),
         ),
       ),

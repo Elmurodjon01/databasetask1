@@ -1,4 +1,4 @@
-import 'package:databasetask1/pages/loginPage.dart';
+
 import 'package:databasetask1/parts.dart';
 import 'package:flutter/material.dart';
 
@@ -76,7 +76,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   const SizedBox(
                     height: 40,
                   ),
-                  Parts.arrow(),
+                  //Parts.arrow(),
                   const SizedBox(
                     height: 100,
                   ),
@@ -87,7 +87,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        'Already have an acocunt? ',
+                        'Already have an account? ',
                         style: TextStyle(color: Colors.white60, fontSize: 20),
                       ),
                       GestureDetector(
@@ -95,7 +95,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           Navigator.pop(context);
                         },
                         child: const Text(
-                          'SIGN UP',
+                          'SIGN IN',
                           style:
                               TextStyle(color: Colors.lightBlue, fontSize: 20),
                         ),
