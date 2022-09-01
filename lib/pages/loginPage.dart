@@ -56,6 +56,14 @@ class _LoginPageState extends State<LoginPage> {
                     height: 20,
                   ),
                   Parts.restorePass(),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  Parts.arrow(),
+                  const SizedBox(
+                    height: 100,
+                  ),
+                  Parts.ask(),
                 ],
               ),
             ),

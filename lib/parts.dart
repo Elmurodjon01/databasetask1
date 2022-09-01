@@ -73,4 +73,40 @@ class Parts {
       style: TextStyle(color: Colors.white60, fontSize: 15),
     );
   }
+
+  static Widget arrow() {
+    return Container(
+      height: 80,
+      width: 80,
+      decoration: const BoxDecoration(
+        color: Colors.lightBlue,
+        borderRadius: BorderRadius.all(
+          Radius.circular(40),
+        ),
+      ),
+      child: const Center(
+        child: Icon(
+          Icons.arrow_forward,
+          color: Colors.white,
+          size: 45,
+        ),
+      ),
+    );
+  }
+
+  static Widget ask() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          'Don\'t have an account? ',
+          style: TextStyle(color: Colors.white60, fontSize: 20),
+        ),
+        Text(
+          'SIGN UP',
+          style: TextStyle(color: Colors.lightBlue, fontSize: 20),
+        ),
+      ],
+    );
+  }
 }
