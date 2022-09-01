@@ -1,3 +1,4 @@
+import 'package:databasetask1/pages/signUpPage.dart';
 import 'package:databasetask1/parts.dart';
 import 'package:flutter/material.dart';
 
@@ -8,10 +9,11 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-final nameController = TextEditingController();
-final passController = TextEditingController();
+
 
 class _LoginPageState extends State<LoginPage> {
+  final nameController = TextEditingController();
+  final passController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Parts.welcoming(),
+                  Parts.welcoming('Welcome Back!'),
                   const SizedBox(
                     height: 8,
                   ),
@@ -63,7 +65,8 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 100,
                   ),
-                  Parts.ask(),
+
+                  Parts.ask(context, 'Don\'t have an account? ', 'SIGN UP'),
                 ],
               ),
             ),

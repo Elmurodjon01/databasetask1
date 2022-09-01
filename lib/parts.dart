@@ -1,3 +1,4 @@
+import 'package:databasetask1/pages/signUpPage.dart';
 import 'package:flutter/material.dart';
 
 class Parts {
@@ -19,14 +20,15 @@ class Parts {
     );
   }
 
-  static Widget welcoming() {
-    return const Text(
-      'Welcome Back!',
-      style: TextStyle(
+  static Widget welcoming(String s) {
+    return Text(
+      s,
+      style: const TextStyle(
         color: Colors.white,
         fontWeight: FontWeight.bold,
         fontSize: 28,
       ),
+      textAlign: TextAlign.center,
     );
   }
 
@@ -47,10 +49,11 @@ class Parts {
     IconData icon,
   ) {
     return TextField(
+      style: const TextStyle(color: Colors.white70),
       controller: controllerOne,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 3, color: Colors.blue),
+          borderSide: const BorderSide(width: 3, color: Colors.white60),
           borderRadius: BorderRadius.circular(15),
         ),
         focusedBorder: OutlineInputBorder(
@@ -84,29 +87,50 @@ class Parts {
           Radius.circular(40),
         ),
       ),
-      child: const Center(
-        child: Icon(
-          Icons.arrow_forward,
-          color: Colors.white,
-          size: 45,
+      child: Container(
+        height: 80,
+        width: 80,
+        decoration: const BoxDecoration(
+          color: Colors.lightBlue,
+          borderRadius: BorderRadius.all(
+            Radius.circular(40),
+          ),
+        ),
+        child: const Center(
+          child: Icon(
+            Icons.arrow_forward,
+            color: Colors.white,
+            size: 45,
+          ),
         ),
       ),
     );
   }
 
-  static Widget ask() {
+  static Widget ask(BuildContext context, String text1, String text2) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          'Don\'t have an account? ',
-          style: TextStyle(color: Colors.white60, fontSize: 20),
+         Text(
+          text1,
+          style: const TextStyle(color: Colors.white60, fontSize: 20),
         ),
-        Text(
-          'SIGN UP',
-          style: TextStyle(color: Colors.lightBlue, fontSize: 20),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SignUpPage(),
+              ),
+            );
+          },
+          child: Text(
+            text2,
+            style: const TextStyle(color: Colors.lightBlue, fontSize: 20),
+          ),
         ),
       ],
     );
   }
+
 }
