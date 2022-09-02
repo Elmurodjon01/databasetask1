@@ -1,6 +1,9 @@
 
+import 'package:databasetask1/model/accountModel.dart';
 import 'package:databasetask1/parts.dart';
 import 'package:flutter/material.dart';
+
+import '../services/hiveDBService.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -15,14 +18,6 @@ final _phoneController = TextEditingController();
 final _passController = TextEditingController();
 
 class _SignUpPageState extends State<SignUpPage> {
-  @override
-  void initState() {
-    super.initState();
-    _nameController;
-    _emailController;
-    _phoneController;
-    _passController;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +71,36 @@ class _SignUpPageState extends State<SignUpPage> {
                   const SizedBox(
                     height: 40,
                   ),
-                  //Parts.arrow(),
+                  GestureDetector(
+                    onTap: _doSignUp,
+                    child: Container(
+                      height: 80,
+                      width: 80,
+                      decoration: const BoxDecoration(
+                        color: Colors.lightBlue,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(40),
+                        ),
+                      ),
+                      child: Container(
+                        height: 80,
+                        width: 80,
+                        decoration: const BoxDecoration(
+                          color: Colors.lightBlue,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(40),
+                          ),
+                        ),
+                        child: const Center(
+                          child: Icon(
+                            Icons.arrow_forward,
+                            color: Colors.white,
+                            size: 45,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                   const SizedBox(
                     height: 100,
                   ),
@@ -109,5 +133,19 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
       ),
     );
+  }
+  void _doSignUp (){
+    String name = _nameController.text.toString().trim();
+    String email = _emailController.text.toString().trim();
+    String phone = _phoneController.text.toString().trim();
+    String pass = _passController.text.toString().trim();
+    Account account = Account(username: name, password: pass, email: email, phone: phone);
+    HiveDB().storeAccount(account);
+    var account2 = HiveDB().loadAccount();
+    print(account2.username);
+    print(account2.email);
+    print(account2.phone);
+    print(account2.password);
+
   }
 }

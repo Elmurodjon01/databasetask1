@@ -1,4 +1,4 @@
-import 'package:databasetask1/pages/signUpPage.dart';
+
 import 'package:databasetask1/parts.dart';
 import 'package:flutter/material.dart';
 
@@ -15,21 +15,21 @@ class LoginPage extends StatefulWidget {
 
 
 class _LoginPageState extends State<LoginPage> {
+
   final nameController = TextEditingController();
   final passController = TextEditingController();
-  @override
-  void initState() {
-    nameController;
-    passController;
-
-    super.initState();
-  }
-  @override
-  void dispose() {
-    nameController.dispose();
-    passController.dispose();
-    super.dispose();
-  }
+  // void initState() {
+  //   nameController;
+  //   passController;
+  //
+  //   super.initState();
+  // }
+  //@override
+  // void dispose() {
+  //   nameController.dispose();
+  //   passController.dispose();
+  //   super.dispose();
+  // }
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF03032b),
@@ -76,7 +76,37 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 40,
                   ),
-                  Parts.arrow(pressed: _doLogin),
+                  //Parts.arrow(pressed: _doLogin),
+              GestureDetector(
+                onTap: _doLogin,
+                child: Container(
+                  height: 80,
+                  width: 80,
+                  decoration: const BoxDecoration(
+                    color: Colors.lightBlue,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(40),
+                    ),
+                  ),
+                  child: Container(
+                    height: 80,
+                    width: 80,
+                    decoration: const BoxDecoration(
+                      color: Colors.lightBlue,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(40),
+                      ),
+                    ),
+                    child: const Center(
+                      child: Icon(
+                        Icons.arrow_forward,
+                        color: Colors.white,
+                        size: 45,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
                   const SizedBox(
                     height: 100,
                   ),
