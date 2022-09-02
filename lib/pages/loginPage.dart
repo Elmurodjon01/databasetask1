@@ -1,6 +1,7 @@
 
 import 'package:databasetask1/parts.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 import '../model/userModel.dart';
 import '../services/hiveDBService.dart';
@@ -123,14 +124,15 @@ class _LoginPageState extends State<LoginPage> {
   void _doLogin(){
     String username = nameController.text.toString().trim();
     String password = passController.text.toString().trim();
-    User user = User(username: username, password: password);
-    HiveDB().storeUser(user);
-    var user2 = HiveDB().loadUser();
-    // box.put('username', username);
-    // box.put('password', password);
-    // String id = box.get('username');
-    // String pw = box.get('password');
-    print(user2.username);
-    print(user2.password);
+
+      var box = Hive.box('test_database');
+
+      box.put('username', username);
+      box.put('password', password);
+      String id = box.get('username');
+      String pw = box.get('password');
+      print(id);
+      print(pw);
+
   }
 }
